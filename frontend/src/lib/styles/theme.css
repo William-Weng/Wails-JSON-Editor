@@ -1,0 +1,27 @@
+:root {
+  --border: #d6dfe9;
+  --header-bg: #f1f4f9;
+  --header-text: #657790;
+
+  --editor-bg: #132e38;
+  --editor-text: #d5e4eb;
+  --gutter-bg: #102630;
+  --gutter-text: #78929d;
+
+  --status-bg: #0b222c;
+  --status-text: #8ba1ac;
+  --error-text: #ffb4a9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
