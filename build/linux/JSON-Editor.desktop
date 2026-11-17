@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=JSON-Editor
+Exec=JSON-Editor
+Icon=JSON-Editor
+Categories=Development;
+Terminal=false
+Keywords=wails
+Version=1.0
+StartupNotify=false

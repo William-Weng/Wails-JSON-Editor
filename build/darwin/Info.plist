@@ -3,28 +3,26 @@
 <plist version="1.0">
 	<dict>
 		<key>CFBundleExecutable</key>
-		<string>wails-json-editor</string>
+		<string/>
 		<key>CFBundleGetInfoString</key>
-		<string>Some Product Comments</string>
+		<string>Built with Wails、Svelte、TypeScript and svelte-jsoneditor</string>
 		<key>CFBundleIconFile</key>
 		<string>icons</string>
-		<key>CFBundleIconName</key>
-		<string>appicon</string>
 		<key>CFBundleIdentifier</key>
-		<string>com.mycompany.myproduct</string>
+		<string>idv.william-weng.wails-json-editor</string>
 		<key>CFBundleName</key>
-		<string>My Product</string>
+		<string>JSON Editor</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
-		<string>0.0.1</string>
+		<string>0.2.0</string>
 		<key>CFBundleVersion</key>
-		<string>0.0.1</string>
+		<string>20261117</string>
 		<key>LSMinimumSystemVersion</key>
 		<string>12.0.0</string>
 		<key>NSHighResolutionCapable</key>
 		<string>true</string>
 		<key>NSHumanReadableCopyright</key>
-		<string>(c) 2025, My Company</string>
+		<string>Copyright © 2026, William Weng</string>
 	</dict>
 </plist>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Content } from 'svelte-jsoneditor';
+  import { formatJsonError } from './lib/utils/jsonError';
   import CodePane from './lib/components/CodePane.svelte';
   import JsonPane from './lib/components/JsonPane.svelte';
   import StatusBar from './lib/components/StatusBar.svelte';
@@ -40,7 +41,7 @@
   const lineCount = $derived(sourceText.split('\n').length);
 
   function getErrorMessage(error: unknown) {
-    return error instanceof Error ? error.message : String(error);
+    return formatJsonError(error, sourceText);
   }
 
   function applySourceText(text: string) {

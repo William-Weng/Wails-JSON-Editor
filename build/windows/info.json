@@ -1,15 +1,15 @@
 {
 	"fixed": {
-		"file_version": "0.0.1"
+		"file_version": "0.2.0"
 	},
 	"info": {
 		"0409": {
-			"ProductVersion": "0.0.1",
-			"CompanyName": "My Company",
-			"FileDescription": "A program that does X",
-			"LegalCopyright": "(c) 2025, My Company",
-			"ProductName": "My Product",
-			"Comments": "Some Product Comments"
+			"ProductVersion": "0.2.0",
+			"CompanyName": "William-Weng",
+			"FileDescription": "編寫JSON的簡易Editor",
+			"LegalCopyright": "Copyright © 2026, William Weng",
+			"ProductName": "JSON Editor",
+			"Comments": "Built with Wails、Svelte、TypeScript and svelte-jsoneditor"
 		}
 	}
 }
