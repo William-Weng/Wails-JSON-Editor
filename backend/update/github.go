@@ -111,5 +111,9 @@ func isCurrentPlatformAsset(name string) bool {
 		return strings.Contains(name, "Win11") && strings.Contains(name, "x86_64")
 	}
 
+	if runtime.GOOS == "linux" && runtime.GOARCH == "arm64" {
+		return strings.Contains(name, "Linux") && strings.Contains(name, "arm64")
+	}
+
 	return false
 }
