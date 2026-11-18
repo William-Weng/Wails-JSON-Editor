@@ -1,8 +1,7 @@
 <script lang="ts">
-    import { Dialogs } from "@wailsio/runtime";
     import { onMount } from "svelte";
-    import type { update } from "../wailsjs/go/models";
     import type { Content } from "svelte-jsoneditor";
+    import { showQuestionDialog } from "./lib/dialogs";
     import { formatJsonError } from "./lib/utils/jsonError";
     import CodePane from "./lib/components/CodePane.svelte";
     import JsonPane from "./lib/components/JsonPane.svelte";
@@ -50,18 +49,18 @@
     }
 
     async function checkUpdate() {
+
         const info = await UpdateService.CheckUpdate();
-        console.log(info);
 
         if (!info?.hasUpdate) { return; }
         if (!info?.latestVersion) { return; }
 
-        const result = await Dialogs.Question({
-            Title: "有新版本請下載更新",
-            Message: `發現新版本 v${info.latestVersion}，目前版本為 v${info.currentVersion}。是否前往下載？`,
-            Buttons: [
-                { Label: "取消", IsDefault: false },
-                { Label: "確定", IsDefault: true },
+        const result = await showQuestionDialog({
+            title: "有新版本請下載更新",
+            message: `發現新版本 v${info.latestVersion}，目前版本為 v${info.currentVersion}。是否前往下載？`,
+            buttons: [
+                { label: "取消" },
+                { label: "確定", isDefault: true },
             ],
         });
 
