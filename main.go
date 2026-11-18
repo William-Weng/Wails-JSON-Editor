@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"wails-json-editor/backend"
 
 	"log"
 
@@ -15,10 +16,14 @@ func init() {}
 
 func main() {
 
+	updateService := &backend.UpdateService{}
+
 	app := application.New(application.Options{
 		Name:        "JSON Editor",
 		Description: "A demo of using raw HTML & CSS",
-		Services:    []application.Service{},
+		Services: []application.Service{
+			application.NewService(updateService),
+		},
 		Assets: application.AssetOptions{
 			Handler: application.AssetFileServerFS(assets),
 		},

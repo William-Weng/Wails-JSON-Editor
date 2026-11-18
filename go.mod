@@ -2,7 +2,10 @@ module wails-json-editor
 
 go 1.26.0
 
-require github.com/wailsapp/wails/v3 v3.0.0
+require (
+	github.com/Masterminds/semver/v3 v3.5.0
+	github.com/wailsapp/wails/v3 v3.0.0
+)
 
 require (
 	github.com/adrg/xdg v0.5.3 // indirect
