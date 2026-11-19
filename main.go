@@ -42,10 +42,6 @@ func main() {
 		URL:                "/",
 	})
 
-	menu := app.Menu.New()
-	menu.AddRole(application.AppMenu)
-	app.Menu.Set(menu)
-
 	err := app.Run()
 
 	if err != nil {
