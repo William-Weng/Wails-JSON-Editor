@@ -35,7 +35,7 @@
     const viewOptions: { value: ViewMode; label: string }[] = [
         { value: "text", label: "Text" },
         { value: "json", label: "JSON" },
-        { value: "split", label: "Text JSON" },
+        { value: "split", label: "Text / JSON" },
     ];
 
     const lineCount = $derived(sourceText.split("\n").length);
@@ -49,19 +49,19 @@
     }
 
     async function checkUpdate() {
-
         const info = await UpdateService.CheckUpdate();
 
-        if (!info?.hasUpdate) { return; }
-        if (!info?.latestVersion) { return; }
+        if (!info?.hasUpdate) {
+            return;
+        }
+        if (!info?.latestVersion) {
+            return;
+        }
 
         const result = await showQuestionDialog({
             title: "有新版本請下載更新",
             message: `發現新版本 v${info.latestVersion}，目前版本為 v${info.currentVersion}。是否前往下載？`,
-            buttons: [
-                { label: "取消" },
-                { label: "確定", isDefault: true },
-            ],
+            buttons: [{ label: "取消" }, { label: "確定", isDefault: true }],
         });
 
         if (result === "確定") {
@@ -118,7 +118,11 @@
 </script>
 
 <div class="workspace">
-    <main class="panes" class:single-pane={viewMode !== "split"}>
+    <main
+        class="panes"
+        class:text-only={viewMode === "text"}
+        class:json-only={viewMode === "json"}
+    >
         <CodePane
             value={sourceText}
             fontSize={codeFontSize}
@@ -153,28 +157,78 @@
 </div>
 
 <style>
+    :global(html),
+    :global(body) {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    :global(#app) {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        height: 100dvh;
+
+        margin: 0;
+        padding: 0;
+        max-width: none;
+        overflow: hidden;
+    }
+
     .workspace {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100dvh;
+
+        flex: 1;
+        min-width: 0;
         min-height: 0;
+
         overflow: hidden;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .panes {
         display: grid;
-        flex: 1;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+        flex: 1;
+        min-width: 0;
         min-height: 0;
+
+        gap: 0;
+        overflow: hidden;
+
+        transition: grid-template-columns 500ms ease;
     }
 
-    .single-pane {
-        grid-template-columns: minmax(0, 1fr);
+    .panes.text-only {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0fr);
     }
 
-    .panes:not(.single-pane) :global(.json-pane) {
-        border-left: 1px solid var(--border);
+    .panes.json-only {
+        grid-template-columns: minmax(0, 0fr) minmax(0, 1fr);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .panes {
+            transition: none;
+        }
+    }
+
+    .panes.text-only {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0fr);
+    }
+
+    .panes.json-only {
+        grid-template-columns: minmax(0, 0fr) minmax(0, 1fr);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .panes {
+            transition: none;
+        }
     }
 </style>

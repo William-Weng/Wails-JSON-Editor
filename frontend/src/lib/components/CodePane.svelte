@@ -87,7 +87,7 @@
   }
 
   .is-hidden {
-    display: none;
+      pointer-events: none;
   }
 
   .text-editor {

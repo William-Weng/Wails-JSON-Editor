@@ -64,7 +64,7 @@
   }
 
   .is-hidden {
-    display: none;
+      pointer-events: none;
   }
 
   .editor-container {
