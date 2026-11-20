@@ -59,7 +59,7 @@ https://github.com/user-attachments/assets/59e5e09e-0ae6-44e7-a1a4-3142d8bae114
 | --- | --- |
 | Text | 只顯示 CODE 面板 |
 | JSON | 只顯示 JSON 面板 |
-| Text JSON | 同時顯示兩個面板 |
+| Text / JSON | 同時顯示兩個面板 |
 
 ### 格式化與壓縮
 
