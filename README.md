@@ -11,7 +11,7 @@
 
 提供純文字與樹狀檢視，支援 JSON 格式化、壓縮、語法驗證，以及獨立調整兩側編輯器字級。
 
-https://github.com/user-attachments/assets/846d5028-9936-45bd-ba7f-eb7274dba1db
+https://github.com/user-attachments/assets/59e5e09e-0ae6-44e7-a1a4-3142d8bae114
 
 ## 功能特色
 

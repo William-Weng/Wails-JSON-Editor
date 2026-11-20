@@ -13,7 +13,7 @@ type UpdateService struct {
 
 func (service *UpdateService) CheckUpdate(ctx context.Context) (*update.UpdateInfo, error) {
 
-	const currentVersion = "0.2.1"
+	const currentVersion = "0.2.2"
 	const repository = "William-Weng/Wails-JSON-Editor"
 
 	info, err := update.CheckUpdate(ctx, currentVersion, repository)
